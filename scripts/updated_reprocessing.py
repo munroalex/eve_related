@@ -91,7 +91,37 @@ implant_modifier = {"801":0.01,"802":0.02,"804":0.04}
 #reprocessing yield calculation
 reprocessing_yield=(0.5 + rig_modifier["T2 Rig"] * ( 1 + sec_modifier["High Sec"])) * (1 + struct_modifier["Tatara"]) * (1 + (reprocessing_skill["5"])) * (1 + (reprocessing_efficiency_skill["5"])) * (1 + (ore_skill["5"])) * (1 + implant_modifier["804"])
 
-#test profit calculation
-profit = (price_list["Veldspar"]["Volume"] / 100) * (price_list["Tritanium"]["Price"] * (400 * reprocessing_yield)) - (price_list["Veldspar"]["Price"] * 100) 
-print(profit)
+#list of all ores to search
+ore_list = ["Veldspar","Scordite","Pyroxeres","Plagioclase","Omber","Kernite","Jaspet","Hemorphite","Hedbergite","Gneiss","Dark Ochre","Crokite",
+           "Bistot","Arkonor","Mercoxit","Spodumain","Bezdnacine","Rakovene","Talassonite"]
+#freighter capacity
+charon_capacity = 465000
+
+#loop through ores and find values
+for ore in ore_list:
+    #mineral value empty list
+    total_mineral_value = []
+    #ore price multiplied by 100 as that is how many units you need to reprocess
+    ore_value = price_list[ore]["Price"] * 100
+    #mineral mass empty list for calculating number of trips
+    total_mineral_mass = []
+    #loop through each mineral produced by the ore
+    for key in reprocessed_ores[ore]:
+        #calculate value by multiplying price by reprocessing yield
+        mineral_price = price_list[key]["Price"]
+        mineral_value = mineral_price * reprocessed_ores[ore][key] * reprocessing_yield
+        #calculate total volume by multiplying volume by reprocessing yield
+        mineral_mass = reprocessed_ores[ore][key] * reprocessing_yield * volumes[key] * price_list[ore]["Volume"]
+        #append lists
+        total_mineral_mass.append(mineral_mass)
+        total_mineral_value.append(mineral_value)
+    #calculate profit
+    profit = (price_list[ore]["Volume"] / 100) * (sum(total_mineral_value) - ore_value)
+    #calculate number of trips
+    trips = charon_capacity / sum(total_mineral_mass)
+    #only display profitable ores. May change to include a certain value per trip.
+    if profit > 0:
+        print(ore + " profit: $" + '{:,.2f}'.format(profit))
+        #print(sum(total_mineral_mass))
+        print(math.ceil(trips))
 
