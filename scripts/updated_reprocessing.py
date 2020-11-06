@@ -188,20 +188,26 @@ for ore in ore_list:
     try:
         total_mineral_value = []
         ore_value = price_list[ore]["Price"] * 100
-        #total_mineral_mass = []
+        total_mineral_mass = []
         for key in reprocessed_ores[ore]:
             mineral_price = price_list[key]["Price"]
             mineral_value = mineral_price * reprocessed_ores[ore][key] * reprocessing_yield
-            #mineral_mass = reprocessed_ores[ore][key] * reprocessing_yield * volumes[key] * price_list[ore]["Volume"]
+            mineral_mass = reprocessed_ores[ore][key] * reprocessing_yield * volumes[key] * price_list[ore]["Volume"]
         
-            #total_mineral_mass.append(mineral_mass)
+            total_mineral_mass.append(mineral_mass)
             total_mineral_value.append(mineral_value)
         profit = (price_list[ore]["Volume"] / 100) * (sum(total_mineral_value) - ore_value)
-        #trips = charon_capacity / sum(total_mineral_mass)
+        trips = charon_capacity / sum(total_mineral_mass)
         if profit > 25000000:
-            print(ore + " profit: $" + '{:,.2f}'.format(profit))
-            #print(sum(total_mineral_mass))
-            #print(math.ceil(trips))
+            print('Ore to purchase: ' + ore)
+            print('Volume to purchase: ' + '{:,.0f}'.format(price_list[ore]["Volume"]))
+            print('Max purchase price: $' + '{:,.2f}'.format(price_list[ore]["Price"]))
+            print('Total cost: $' + '{:,.2f}'.format(price_list[ore]["Volume"] * price_list[ore]["Price"]))
+            print("Profit: $" + '{:,.2f}'.format(profit))
+            for key in reprocessed_ores[ore]:
+                print('Min sell price: ' + key + ': $' + '{:,.2f}'.format(price_list[key]["Price"]))
+            print('------------------------------')
+            #print('Trips: ' + math.ceil(trips))
     except:
         pass
 
