@@ -2,7 +2,6 @@
 from esipy import EsiApp
 from esipy import EsiClient
 from resources import type_ids, reprocessed_ores, reprocessing_yield, ore_list
-import sys
 import json
 #create app
 esi_app = EsiApp()
