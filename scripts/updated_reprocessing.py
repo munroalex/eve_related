@@ -196,7 +196,7 @@ for ore in ore_list:
         
             total_mineral_mass.append(mineral_mass)
             total_mineral_value.append(mineral_value)
-        profit = (price_list[ore]["Volume"] / 100) * (sum(total_mineral_value) - ore_value)
+        profit = (price_list[ore]["Volume"] / 100) * ((sum(total_mineral_value) - (sum(total_mineral_value) * broker_fee) - (sum(total_mineral_value) * sales_tax)) - ore_value)
         trips = charon_capacity / sum(total_mineral_mass)
         if profit > 25000000:
             print('Ore to purchase: ' + ore)
