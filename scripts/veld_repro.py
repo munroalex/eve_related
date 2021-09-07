@@ -42,15 +42,81 @@ be_stable = 380 * min_price - ((380 * min_price) * 0.053)
 be_dense = 364 * min_price - ((364 * min_price) * 0.053)
 be_concentrated = 347 * min_price - ((347 * min_price) * 0.053)
 
-###-----------------------------------------------------------------------------###
+
+
+
+
+###----------------------------------------------------------------------------------------------------------------------------------------------------###
 ### type id reference
 ###-----------------------------------------------------------------------------###
-# type id reference
-# 34 = Tritanium
-# 28432 = Compressed Veldspar
-# 46705 = Compressed Stable Veldspar
-# 28431 = Compressed Dense Veldspar
-# 28430 = Compressed Concentrated Veldspar
+# minerals
+# Tritanium = 34
+# Pyerite = 35
+# Mexallon = 36
+# Isogen = 37
+# Noxcium = 38
+# Zydrine = 39
+# Megacyte = 40
+# Morphite = 11399
+###-----------------------------------------------------------------------------###
+# ore
+# Compressed Veldspar = 28432
+# Compressed Stable Veldspar = 46705
+# Compressed Dense Veldspar = 28431
+# Compressed Concentrated Veldspar = 28430
+# Compressed Scordite = 28429
+# Compressed Condensed Scordite = 28427
+# Compressed Massive Scordite = 28428
+# Compressed Glossy Scordite = 46703
+# Compressed Pyroxeres = 28424
+# Compressed Solid Pyroxeres = 28425
+# Compressed Viscous Pyroxeres = 28426
+# Compressed Opulent Pyroxeres = 46702
+# Compressed Plagioclase = 28422
+# Compressed Rich Plagioclase = 28423
+# Compressed Azure Plagioclase = 28421
+# Compressed Sparkling Plagioclase = 46701
+# Compressed Omber = 28416
+# Compressed Silvery Omber = 28417
+# Compressed Golden Omber = 28415
+# Compressed Platinoid Omber = 46700
+# Compressed Kernite = 28410
+# Compressed Luminous Kernite = 28411
+# Compressed Fiery Kernite = 28409
+# Compressed Resplendant Kernite = 46699
+# Compressed Jaspet = 28406
+# Compressed Pristine Jaspet = 28407
+# Compressed Pure Jaspet = 28408
+# Compressed Immaculate Jaspet = 46698
+# Compressed Hemorphite = 28403
+# Compressed Radiant Hemorphite = 28404
+# Compressed Vivid Hemorphite = 28405
+# Compressed Scintillating Hemorphite = 46697
+# Compressed Hedbergite = 28401
+# Compressed Vitric Hedbergite = 28402
+# Compressed Glazed Hedbergite = 28400
+# Compressed Lustrous Hedbergite = 46696
+# Compressed Gneiss = 28397
+# Compressed Iridescent Gneiss = 28398
+# Compressed Prismatic Gneiss = 28399
+# Compressed Brilliant Gneiss = 46695
+# Compressed Dark Ochre = 28394
+# Compressed Obsidian Ochre = 28395
+# Compressed Onyx Ochre = 28396
+# Compressed Jet Ochre = 46694
+# Compressed Crokite = 28391
+# Compressed Crystalline Crokite = 28392
+# Compressed Sharp Crokite = 28393
+# Compressed Pellucid Crokite = 46693
+# Compressed Bistot = 28388
+# Compressed Monoclinic Bistot = 28389
+# Compressed Triclinic Bistot = 28390
+# Compressed Cubic Bistot = 46692
+# Compressed Arkonor = 28367
+# Compressed Crimson Arkonor = 28385
+# Compressed Prime Arkonor = 28387
+# Compressed Flawless Arkonor = 46691
+
 ###-----------------------------------------------------------------------------###
 ###Refining Reference
 ###-----------------------------------------------------------------------------###
@@ -59,6 +125,14 @@ be_concentrated = 347 * min_price - ((347 * min_price) * 0.053)
 # 380 = Compressed Stable Veldspar
 # 364 = Compressed Dense Veldspar
 # 347 = Compressed Concentrated Veldspar
+###-----------------------------------------------------------------------------###
+
+
+
+
+
+
+
 ###-----------------------------------------------------------------------------###
 # market call for ores
 ###-----------------------------------------------------------------------------###
