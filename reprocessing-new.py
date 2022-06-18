@@ -471,19 +471,19 @@ for rock in ore:
             #print(f"{mineral}:{price_dict[mineral]}")
             mineral_price = price_dict[mineral]
             mineral_value = mineral_price * ore[rock][mineral] * reprocessing_yield
-            total_mineral_value.append(mineral_value)
+            total_mineral_value.append(mineral_value /100)
         #print(sum(total_mineral_value))
         #profit = (ore_dict[rock]["Volume"]) * ((sum(total_mineral_value) - (sum(total_mineral_value) * broker_fee) - (sum(total_mineral_value) * sales_tax)) - (ore_value * ore_dict[rock]["Volume"]))
         profit = (sum(total_mineral_value) *ore_dict[rock]["Volume"])  - (ore_dict[rock]["Volume"] * ore_dict[rock]["Price"]) 
         #print(f"Profit {profit}")
     
-
-        print('Ore to purchase: ' + rock)
-        print('Volume to purchase: ' + '{:,.0f}'.format(ore_dict[rock]["Volume"]))
-        print('Max purchase price: $' + '{:,.2f}'.format(ore_dict[rock]["Price"]))
-        print('Total cost: $' + '{:,.2f}'.format(ore_dict[rock]["Volume"] * ore_dict[rock]["Price"]))
-        print("Total Mineral Value: $" + '{:,.2f}'.format(sum(total_mineral_value) * (ore_dict[rock]["Volume"])))
-        print("Profit: $" + '{:,.2f}'.format(profit))
-        print('------------------------------')
+        if profit > 0:
+            print('Ore to purchase: ' + rock)
+            print('Volume to purchase: ' + '{:,.0f}'.format(ore_dict[rock]["Volume"]))
+            print('Max purchase price: $' + '{:,.2f}'.format(ore_dict[rock]["Price"]))
+            print('Total cost: $' + '{:,.2f}'.format(ore_dict[rock]["Volume"] * ore_dict[rock]["Price"]))
+            print("Total Mineral Value: $" + '{:,.2f}'.format(sum(total_mineral_value) * (ore_dict[rock]["Volume"])))
+            print("Profit: $" + '{:,.2f}'.format(profit))
+            print('------------------------------')
 
 print(price_dict)
